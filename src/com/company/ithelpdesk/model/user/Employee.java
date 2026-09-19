@@ -14,8 +14,31 @@ public class Employee extends User{
         this.department = department;
     }
 
+    public String getEmployeeCode() {
+        return employeeCode;
+    }
+
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     @Override
     public UserRole getRoles() {
         return UserRole.EMPLOYEE;
+    }
+
+    @Override
+    public void displayProfile(){
+        super.displayProfile();
+        System.out.println("Employee Code: " + employeeCode);
+        System.out.println("Department: " + department);
     }
 }

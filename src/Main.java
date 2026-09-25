@@ -93,20 +93,45 @@ public class Main {
                     List<User> users = userService.listAllUsers();
                     for(User u : users){
                         u.displayProfile();
-                        System.out.println("\n");
                     }
+                    break;
                 case 5:
+                    System.out.print("Enter User Id: ");
                     userId = sc.nextLong();
-
+                    user = userService.activateUser(userId);
+                    if(user == null){
+                        System.out.println("User not found with id: " + userId);
+                        break;
+                    }
+                    System.out.println("User activated successfully.");
+                    user.displayProfile();
+                    break;
                 case 6:
+                    System.out.print("Enter User Id: ");
+                    userId = sc.nextLong();
+                    user = userService.deactivateUser(userId);
+                    if(user == null){
+                        System.out.println("User not found with id: " + userId);
+                        break;
+                    }
+                    System.out.println("User activated successfully.");
+                    user.displayProfile();
                     break;
                 case 7:
+                    System.out.print("Enter User Id: ");
+                    userId = sc.nextLong();
+                    user = userService.findByUserId(userId);
+                    if(user == null){
+                        System.out.println("User not found with id: " + userId);
+                        break;
+                    }
+                    user.displayProfile();
                     break;
                 default:
-                    System.out.println("Invalid input");
+                    System.out.print("Invalid input");
                     break;
             }
-            System.out.println("\nDo you want to continue? 1 for yes 0 for no: ");
+            System.out.print("\nDo you want to continue? 1 for yes 0 for no: ");
             continueInput = sc.nextInt();
         }
             sc.close();
